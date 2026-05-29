@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Order premium tombstones, gravemarkers, and custom memorials from Farwell Tombstones. Browse products and services with transparent pricing." />
+  <title>Order | Farwell Tombstones - Custom Memorials & Products</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .pricing-section {
+      margin: 3rem 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .pricing-card {
+      padding: 2rem;
+      border-radius: 24px;
+      background: linear-gradient(135deg, white 0%, #f8fafc 100%);
+      border: 2px solid rgba(37, 99, 235, 0.2);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: fadeInScale 0.8s ease-out both;
+      transform: perspective(1200px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card:nth-child(1) { animation-delay: 0.2s; }
+    .pricing-card:nth-child(2) { animation-delay: 0.3s; }
+    .pricing-card:nth-child(3) { animation-delay: 0.4s; }
+    .pricing-card:nth-child(4) { animation-delay: 0.5s; }
+    .pricing-card:nth-child(5) { animation-delay: 0.6s; }
+    .pricing-card:nth-child(6) { animation-delay: 0.7s; }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .pricing-card:hover {
+      transform: perspective(1200px) rotateY(-5deg) rotateX(5deg) scale(1.05) translateZ(20px);
+      box-shadow: 0 40px 80px rgba(37, 99, 235, 0.15);
+      border-color: var(--accent);
+    }
+
+    .pricing-card:hover::before {
+      left: 100%;
+    }
+
+    .pricing-badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #1e40af);
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.8s ease-out both;
+    }
+
+    .pricing-card:nth-child(1) .pricing-badge { animation-delay: 0.3s; }
+    .pricing-card:nth-child(2) .pricing-badge { animation-delay: 0.4s; }
+    .pricing-card:nth-child(3) .pricing-badge { animation-delay: 0.5s; }
+
+    .pricing-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.4rem;
+      color: var(--primary);
+      background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .pricing-description {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .price-display {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .price-currency {
+      font-size: 1.2rem;
+    }
+
+    .price-suffix {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+
+    .features-list li {
+      padding: 0.6rem 0;
+      padding-left: 1.8rem;
+      position: relative;
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .features-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .pricing-card:hover .features-list li {
+      color: var(--text);
+      transform: translateX(5px);
+    }
+
+    .select-btn {
+      width: 100%;
+      margin-top: 1.5rem;
+      background: linear-gradient(135deg, var(--accent) 0%, #1e40af 100%);
+      color: white;
+      padding: 0.9rem 1.5rem;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.8s ease-out both;
+    }
+
+    .select-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+    }
+
+    .services-section {
+      background: linear-gradient(135deg, #f8f9ff 0%, #eef2ff 100%);
+      padding: 2rem;
+      border-radius: 24px;
+      border: 1px solid rgba(37, 99, 235, 0.15);
+      margin: 2rem 0;
+      animation: fadeInUp 0.8s ease-out 0.5s both;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .service-item {
+      padding: 1.5rem;
+      background: white;
+      border-radius: 18px;
+      border: 1px solid rgba(37, 99, 235, 0.1);
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.8s ease-out both;
+    }
+
+    .service-item:nth-child(1) { animation-delay: 0.6s; }
+    .service-item:nth-child(2) { animation-delay: 0.7s; }
+    .service-item:nth-child(3) { animation-delay: 0.8s; }
+    .service-item:nth-child(4) { animation-delay: 0.9s; }
+
+    .service-item:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-item h4 {
+      margin: 0 0 0.5rem;
+      color: var(--primary);
+      font-size: 1rem;
+    }
+
+    .service-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .order-form-section {
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+
+    .form-group-divider {
+      margin: 2rem 0;
+      padding: 1.5rem 0;
+      border-top: 2px solid rgba(37, 99, 235, 0.2);
+    }
+
+    .form-group-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quantity-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: white;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .quantity-btn:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .quantity-input {
+      width: 60px;
+      padding: 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    @media (max-width: 980px) {
+      .pricing-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pricing-card:hover {
+        transform: perspective(1200px) rotateY(-3deg) rotateX(2deg) scale(1.02) translateZ(10px);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .pricing-grid,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-card {
+        padding: 1.5rem;
+      }
+
+      .price-display {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__wrapper">
+      <a class="brand" href="index.html">🏛️ Farwell Tombstones</a>
+      <nav class="nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="order.html">Order</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-top: 2rem; padding-bottom: 2rem;">
+      <div class="container">
+        <p class="eyebrow">🛒 Order System</p>
+        <h1>Place your memorial order request.</h1>
+        <p class="lead">Browse our product categories, select your memorial style, customize with materials and engraving, then submit your order inquiry. Our team will contact you within 24 hours to confirm pricing and timeline.</p>
+      </div>
+    </section>
+
+    <!-- MEMORIAL TOMBSTONES SECTION -->
+    <section class="pricing-section container">
+      <div class="section-header">
+        <p class="eyebrow">⛩️ Standard Grave Markers</p>
+        <h2>Single Grave Memorials</h2>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <span class="pricing-badge">Kids</span>
+          <h3>Kids Marker</h3>
+          <p class="pricing-description">Traditional single grave marker for children</p>
+          <div class="price-display">
+            <span class="price-currency">R</span>3,800<span class="price-suffix">- R4,000</span>
+          </div>
+          <ul class="features-list">
+            <li>Standard size</li>
+            <li>Choice of materials</li>
+            <li>Basic engraving</li>
+            <li>Professional finish</li>
+          </ul>
+          <button class="select-btn">View Details</button>
+        </div>
+
+        <div class="pricing-card">
+          <span class="pricing-badge">Popular</span>
+          <h3>Adult Marker</h3>
+          <p class="pricing-description">Traditional single grave marker for adults</p>
+          <div class="price-display">
+            <span class="price-currency">R</span>4,500<span class="price-suffix">- R5,200</span>
+          </div>
+          <ul class="features-list">
+            <li>Standard size</li>
+            <li>Multiple stone options</li>
+            <li>Detailed engraving</li>
+            <li>Polished finish</li>
+          </ul>
+          <button class="select-btn">View Details</button>
+        </div>
+
+        <div class="pricing-card">
+          <span class="pricing-badge">Premium</span>
+          <h3>Adult Premium</h3>
+          <p class="pricing-description">Large polished marker with premium engraving</p>
+          <div class="price-display">
+            <span class="price-currency">R</span>5,200<span class="price-suffix">- R6,500</span>
+          </div>
+          <ul class="features-list">
+            <li>Large size</li>
+            <li>Premium materials</li>
+            <li>Complex engraving</li>
+            <li>Custom design</li>
+          </ul>
+          <button class="select-btn">View Details</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL SLAB SECTION -->
+    <section class="pricing-section container">
+      <div class="section-header">
+        <p class="eyebrow">🏆 Full Slab Stones</p>
+        <h2>Family & Double Grave Memorials</h2>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <span class="pricing-badge">Kids</span>
+          <h3>Kids Full Slab</h3>
+          <p class="pricing-description">Complete slab stone for children's grave</p>
+          <div class="price-display">
+            <span class="price-currency">R</span>6,700<span class="price-suffix">- R7,200</span>
+          </div>
+          <ul class="features-list">
+            <li>Complete coverage</li>
+            <li>Multiple engravings</li>
+            <li>Durable materials</li>
+            <li>Professional installation</li>
+          </ul>
+          <button class="select-btn">View Details</button>
+        </div>
+
+        <div class="pricing-card">
+          <span class="pricing-badge">Most Popular</span>
+          <h3>Adult Full Slab</h3>
+          <p class="pricing-description">Complete family/double grave memorial</p>
+          <div class="price-display">
+            <span class="price-currency">R</span>8,400<span class="price-suffix">- R9,500</span>
+          </div>
+          <ul class="features-list">
+            <li>Double coverage</li>
+            <li>Multiple personalization</li>
+            <li>Premium finishes</li>
+            <li>Expert installation</li>
+          </ul>
+          <button class="select-btn">View Details</button>
+        </div>
+
+        <div class="pricing-card">
+          <span class="pricing-badge">Luxury</span>
+          <h3>Premium Family Slab</h3>
+          <p class="pricing-description">Custom design family memorial with intricate engraving</p>
+          <div class="price-display">
+            <span class="price-currency">R</span>9,500<span class="price-suffix">+</span>
+          </div>
+          <ul class="features-list">
+            <li>Custom design</li>
+            <li>Bespoke engraving</li>
+            <li>Luxury materials</li>
+            <li>Premium installation</li>
+          </ul>
+          <button class="select-btn">View Details</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIUM MONUMENTS SECTION -->
+    <section class="pricing-section container">
+      <div class="section-header">
+        <p class="eyebrow">✨ Premium Monuments</p>
+        <h2>High-End Memorial Collections</h2>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <span class="pricing-badge">Classic</span>
+          <h3>Classic Premium</h3>
+          <p class="pricing-description">Polished granite with basic engraving and finishes</p>
+          <div class="price-display">
+            <span class="price-currency">R</span>7,900<span class="price-suffix">- R8,500</span>
+          </div>
+          <ul class="features-list">
+            <li>High-quality granite</li>
+            <li>Polished surfaces</li>
+            <li>Classic design</li>
+            <li>Professional engraving</li>
+          </ul>
+          <button class="select-btn">View Details</button>
+        </div>
+
+        <div class="pricing-card">
+          <span class="pricing-badge">Modern</span>
+          <h3>Modern Premium</h3>
+          <p class="pricing-description">Contemporary design with artistic engraving</p>
+          <div class="price-display">
+            <span class="price-currency">R</span>8,500<span class="price-suffix">- R10,000</span>
+          </div>
+          <ul class="features-list">
+            <li>Modern aesthetics</li>
+            <li>Artistic elements</li>
+            <li>Detailed engraving</li>
+            <li>Premium finishes</li>
+          </ul>
+          <button class="select-btn">View Details</button>
+        </div>
+
+        <div class="pricing-card">
+          <span class="pricing-badge">Luxury</span>
+          <h3>Luxury Premium</h3>
+          <p class="pricing-description">Bespoke memorial with special finishes and custom design</p>
+          <div class="price-display">
+            <span class="price-currency">R</span>10,000<span class="price-suffix">+</span>
+          </div>
+          <ul class="features-list">
+            <li>Bespoke design</li>
+            <li>Special finishes</li>
+            <li>Custom engraving</li>
+            <li>Luxury materials</li>
+          </ul>
+          <button class="select-btn">View Details</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-section container">
+      <h2>Additional Services & Customization</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">Enhance your memorial with our professional services and accessories.</p>
+      <div class="services-grid">
+        <div class="service-item">
+          <div class="service-icon">✏️</div>
+          <h4>Engraving Services</h4>
+          <p>Name, dates, epitaph, family crest, emblem, photo engraving, or custom artwork - professionally crafted.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🪨</div>
+          <h4>Material Selection</h4>
+          <p>Choose from granite (black, grey, pink, red), marble (white, black), or sandstone with expert guidance.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🎨</div>
+          <h4>Custom Design</h4>
+          <p>Work with our experts to create a unique design that honors your loved one's memory and legacy.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🔧</div>
+          <h4>Repair & Restoration</h4>
+          <p>Professional monument cleaning, restoration, and repairs for existing memorials. Price on assessment.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🌸</div>
+          <h4>Decorative Accessories</h4>
+          <p>Flower vases (R150-400), decorative borders (R250-600), religious symbols (R200-500) and more.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">📦</div>
+          <h4>Installation & Delivery</h4>
+          <p>Professional installation service (R800-2,000) or arrange your own with our support and guidance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER FORM SECTION -->
+    <section class="container order-form-section" style="margin-bottom: 3rem;">
+      <div class="section-header">
+        <p class="eyebrow">📋 Place Your Order</p>
+        <h2>Submit your memorial request</h2>
+      </div>
+      <form id="orderForm" class="contact__form">
+        <div class="form-group-divider">
+          <div class="form-group-title">🏛️ Memorial Selection</div>
+          <label>
+            Memorial Category
+            <select name="productType" required>
+              <option value="">Select a category...</option>
+              <option>Standard Grave Marker - Kids (R3,800-R4,000)</option>
+              <option>Standard Grave Marker - Adult (R4,500-R5,200)</option>
+              <option>Standard Grave Marker - Adult Premium (R5,200-R6,500)</option>
+              <option>Full Slab Stone - Kids (R6,700-R7,200)</option>
+              <option>Full Slab Stone - Adult (R8,400-R9,500)</option>
+              <option>Full Slab Stone - Premium Family (R9,500+)</option>
+              <option>Premium Monument - Classic (R7,900-R8,500)</option>
+              <option>Premium Monument - Modern (R8,500-R10,000)</option>
+              <option>Premium Monument - Luxury (R10,000+)</option>
+            </select>
+          </label>
+
+          <label>
+            Material
+            <select name="material" required>
+              <option value="">Select stone type...</option>
+              <option>Black Granite</option>
+              <option>Grey Granite</option>
+              <option>Pink Granite</option>
+              <option>Red Granite</option>
+              <option>White Marble</option>
+              <option>Black Marble</option>
+              <option>Sandstone</option>
+            </select>
+          </label>
+
+          <label>
+            Size
+            <select name="size" required>
+              <option value="">Select size...</option>
+              <option>Standard</option>
+              <option>Large</option>
+              <option>Extra Large</option>
+              <option>Custom Size (to be discussed)</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-group-divider">
+          <div class="form-group-title">✍️ Personalization</div>
+          <label>
+            Engraving Details
+            <textarea name="engraving" placeholder="Full names, dates, epitaph, special requests..." rows="4"></textarea>
+          </label>
+
+          <label>
+            Special Requests / Custom Design
+            <textarea name="specialRequests" placeholder="Photo engraving, religious symbols, custom artwork, repairs, etc." rows="4"></textarea>
+          </label>
+        </div>
+
+        <div class="form-group-divider">
+          <div class="form-group-title">📦 Order Details</div>
+          <label>
+            Quantity
+            <input type="number" name="quantity" min="1" value="1" required />
+          </label>
+
+          <label>
+            Delivery / Installation
+            <select name="delivery" required>
+              <option value="">Select option...</option>
+              <option>Installation Service (R800-R2,000)</option>
+              <option>Customer Pickup</option>
+              <option>I'll arrange delivery myself</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-group-divider">
+          <div class="form-group-title">👤 Your Information</div>
+          <label>
+            Full Name
+            <input type="text" name="name" placeholder="Your full name" required />
+          </label>
+
+          <label>
+            Email Address
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+
+          <label>
+            Phone Number
+            <input type="tel" name="phone" placeholder="+27 (0)88 888 8888" required />
+          </label>
+
+          <label>
+            Location / Cemetery
+            <input type="text" name="location" placeholder="Cemetery or location for installation" />
+          </label>
+        </div>
+
+        <div class="form-group-divider">
+          <div class="form-group-title">📝 Additional Notes</div>
+          <label>
+            Any additional information
+            <textarea name="notes" rows="4" placeholder="Timeline preferences, budget questions, design ideas, etc."></textarea>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn--primary" style="width: 100%; padding: 1.2rem;">Submit Order Request</button>
+        <p class="form-note" id="orderNote">✓ Your order request has been received! Our team will contact you within 24 hours to confirm pricing, materials, and timeline. We appreciate your trust in Farwell Tombstones.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__content">
+      <p>© 2026 Farwell Tombstones. Honoring memories with quality and care.</p>
+      <p>Premium memorial services with transparent pricing and professional craftsmanship.</p>
+      <p><a href="admin.html">Admin Dashboard</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

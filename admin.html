@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Farwell Tombstones</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__wrapper">
+      <a class="brand" href="index.html">Farwell Tombstones</a>
+      <nav class="nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="order.html">Order</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container admin-panel">
+    <section class="admin-section admin-login" id="adminLoginSection">
+      <div class="admin-card">
+        <h2>Admin Login</h2>
+        <form id="adminLoginForm">
+          <label>
+            Password
+            <input type="password" id="adminPassword" placeholder="Enter admin password" required />
+          </label>
+          <button type="submit" class="btn btn--primary">Sign In</button>
+          <p class="form-note" id="adminLoginNote">Enter your admin password to view orders, customers, and materials.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="admin-section admin-dashboard hidden" id="adminDashboardSection">
+      <div class="admin-card admin-actions">
+        <div>
+          <h2>Admin Dashboard</h2>
+          <p class="form-note">Live order and customer tracking with material management.</p>
+        </div>
+        <button id="logoutButton" class="btn btn--secondary">Logout</button>
+      </div>
+
+      <div class="admin-summary">
+        <div class="admin-card">
+          <h3>Orders</h3>
+          <div class="badge" id="ordersCount">0</div>
+        </div>
+        <div class="admin-card">
+          <h3>Customers</h3>
+          <div class="badge" id="contactsCount">0</div>
+        </div>
+        <div class="admin-card">
+          <h3>Materials</h3>
+          <div class="badge" id="materialsCount">0</div>
+        </div>
+      </div>
+
+      <div class="admin-card admin-section">
+        <h2>Recent orders</h2>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Material</th>
+                <th>Quantity</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="admin-card admin-section">
+        <h2>Recent customers</h2>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="contactsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="admin-card admin-section">
+        <h2>Materials</h2>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Published</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="materialsTableBody"></tbody>
+          </table>
+        </div>
+        <form id="addMaterialForm" class="admin-card" style="margin-top: 1.5rem;">
+          <h3>Add or update materials</h3>
+          <label>
+            Material name
+            <input type="text" id="newMaterialName" placeholder="Stone type" required />
+          </label>
+          <label>
+            Description
+            <textarea id="newMaterialDescription" rows="3" placeholder="Optional description"></textarea>
+          </label>
+          <div class="admin-actions">
+            <button type="submit" class="btn btn--primary">Add Material</button>
+            <p class="form-note">Use this form to add new materials to the order system.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__content">
+      <p>© 2026 Farwell Tombstones</p>
+      <p>Admin access for order and customer workflow.</p>
+    </div>
+  </footer>
+
+  <script src="admin.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
